@@ -6,6 +6,8 @@ public class enrollmentStudent {
         public void enrollStudent(Student student) {
             // Code for student enrollment (e.g., saving to database, registering for classes)
             System.out.println(student.getName() + " has been successfully enrolled.");
+
         }
+
 
 }
