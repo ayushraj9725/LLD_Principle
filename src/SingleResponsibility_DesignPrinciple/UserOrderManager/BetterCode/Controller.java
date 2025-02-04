@@ -14,7 +14,7 @@ public class Controller {
         User user = new User("ayush0123" ,"Ayush Raj" ,"@ayushraj@123","Meerut City" ) ;
 
         // Create an order
-        //  Order order = new Order("O123",user , Arrays.asList(item1,item2));
+        // Order order = new Order("O123",user , Arrays.asList(item1,item2));
         // we can make this way or this way also
 
         Order order = new Order("0123" , user);

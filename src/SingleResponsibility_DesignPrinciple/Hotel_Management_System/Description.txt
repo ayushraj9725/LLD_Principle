@@ -1,0 +1,13 @@
+Problem:
+In a hotel system, when a customer books a room:
+
+ -> Room Availability: Check if the room is available.
+ -> Billing: Calculate the cost for the stay.
+ -> Check-in: Handle customer check-in process.
+ -> Notification: Send a booking confirmation to the customer.
+
+Applying SRP:
+ -> RoomAvailabilityService class is responsible for room availability checking.
+ -> BillingService class handles billing and cost calculation.
+ -> CheckInService class handles check-in process.
+ -> NotificationService is responsible for sending booking confirmation.

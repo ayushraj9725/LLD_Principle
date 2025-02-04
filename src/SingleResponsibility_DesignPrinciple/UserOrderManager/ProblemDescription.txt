@@ -1,0 +1,17 @@
+Problem:
+      In an e-commerce application, when a customer places an order, several tasks need to be performed:
+
+-> Order Processing: Checking product availability, calculating the total price, updating inventory.
+-> Payment Handling: Processing the payment through a payment gateway.
+-> Notification: Sending email/SMS notifications to the user regarding order status.
+
+
+Applying SRP:
+   Each class should have only one responsibility. For example:
+   OrderProcessor : class handles the logic for order processing (checking availability, updating inventory).
+
+   PaymentProcessor : class is responsible for handling payment (communicating with the payment gateway).
+
+   NotificationService : class is responsible for sending notifications (email/SMS).
+
+   This way, each class handles only one aspect of the system and can be tested and maintained independently.

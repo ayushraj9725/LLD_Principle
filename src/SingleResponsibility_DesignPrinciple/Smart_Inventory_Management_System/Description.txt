@@ -1,0 +1,75 @@
+/************************************************   DESCRIPTION OVERALL *****************************************************/
+
+PROBLEM STATEMENT :  In a retail or warehouse environment, managing the stock of products manually can be time-consuming and prone to errors.
+                     The system needs to automate various tasks:
+
+                     Stock Monitoring: Keeping track of the stock level in real-time.
+                     Reorder Management: Automatically reorder products when stock falls below a certain threshold.
+                     Inventory Reporting: Generating reports for inventory status, sales, and forecasting.
+                     Notifications: Notify the warehouse or the store manager when the stock is running low or when orders are placed.
+
+REAL WORLD PROBLEM OF SMART INVENTORY MANAGEMENT SYSTEM : Imagine a store that sells electronics, and the system is tasked with managing the inventory of products like laptops, phones, and accessories. The system needs to:
+
+                                                          Track the quantity of each product.
+                                                          Calculate the value of stock based on current prices.
+                                                          Automatically reorder products from suppliers when stock is low.
+                                                          Send notifications to warehouse managers and store staff about stock levels.
+                                                          Generate reports on sales, stock levels, and reorder status.
+
+What is the Single Responsibility Principle (SRP)?
+  The Single Responsibility Principle (SRP) says that a class should have only one reason to change, meaning each class should
+  be responsible for only one task. It should only be concerned with one job, and if we need to change its behavior,
+  the change should be related to that single responsibility.
+
+  Real-World Example (Simple Explanation)
+  Imagine we are managing a small store that sells products like shoes and clothes.
+
+ we need to keep track of inventory (how many products you have in stock).
+ we need to reorder products when they run low.
+ we need to send notifications to your customers about product availability or stock updates.
+ If all these things were handled by one big class in your code, it would be confusing and messy.
+ You would have a single class that has to deal with inventory, product management, notifications, and so on.
+ If we wanted to change the way notifications work, you'd end up touching the inventory code too.
+
+
+ This StoreManager class has too many responsibilities. If you want to change how products are reordered,
+ you might end up affecting the code that sends notifications or generates reports! It's hard to maintain and hard to extend.
+
+  How SRP Helps - Breaking Down Responsibilities
+  Now, using SRP, you split the responsibilities into separate classes, each one focused on a single task:
+
+  -> InventoryService: Deals only with inventory tasks (like checking stock, updating stock).
+  -> ReorderService: Deals only with reordering products.
+  -> NotificationService: Sends notifications to customers (for example, telling them a product is low in stock).
+  -> ReportService: Generates reports about stock levels, sales, etc.
+
+  Each class only has one job!
+
+  Why This Works:
+  Separation of Concerns: Each class has a single responsibility. For example, InventoryService only handles inventory.
+  If you change the way stock is updated or calculated, you only touch the InventoryService class, not the others.
+
+  Easier to Manage: If tomorrow you need to update the notification system (e.g., switching from emails to push notifications),
+  you just need to change the NotificationService class without messing up the inventory, reordering, or reporting logic.
+
+  More Flexible: If you want to add new features in the future, you can do so easily by adding new classes that focus on their own tasks.
+  For example, you could add a class to track customer orders without affecting the stock management code
+
+
+  /**********/
+  CLASSES HANDLE THE :
+
+  Product : handles product details.
+  InventoryService : manages the inventory logic.
+  ReorderService :  handles the reorder logic.
+  NotificationService :  manages notifications.
+  ReportingService : generates reports.
+
+  Maintainability: If the logic for sending notifications changes (e.g., switching to push notifications),
+                   only the NotificationService needs to be modified without affecting the rest of the system.
+
+  Testability: Each class is independent, so you can easily write unit tests for individual components
+               (e.g., test if InventoryService correctly calculates inventory value).
+
+  Extensibility: If you want to add new features (e.g., support for multiple suppliers or integrating with
+                 a new payment gateway), you can extend the system without breaking existing functionality.

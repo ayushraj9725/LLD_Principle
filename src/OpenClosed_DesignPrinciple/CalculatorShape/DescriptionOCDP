@@ -1,0 +1,29 @@
+
+-> What Is Open/Closed Design Principle  ? :
+               The Open/Closed Principle (OCP) is one of the key principles of object-oriented design and is part of the SOLID principles
+               (a set of five principles that help in designing software that is easy to maintain and extend).
+
+-> Open/Closed Principle Defined:
+               The Open/Closed Principle states that a class, module, or function should be open for extension,
+               but closed for modification.
+
+               ~ Open for Extension: The behavior of a class or module can be extended to accommodate new functionality.
+
+               ~ Closed for Modification: Once a class or module is implemented and tested, it should not be modified.
+               Instead, new behavior should be added through extension, such as by adding new subclasses or using polymorphism.
+
+               This principle encourages developers to write code that can be extended without changing the existing code,
+               which is crucial for building scalable and maintainable systems.
+
+-> Why is it Important?
+               * Prevents breaking existing code: By adhering to the Open/Closed Principle, you avoid modifying existing code
+                 that is already working. Instead, you extend its functionality.
+
+               * Improves maintainability: As your software grows, this principle ensures that new features
+                 can be added easily without touching or breaking the existing functionality.
+
+               * Promotes reusability: By writing code that is open to extension, developers can reuse existing components and
+                 extend them as needed for new requirements.
+
+-> We are discussing in this package of Low Level Design Solid Principle of Open / Closed Design Principle Package
+   We ahe the diff diff Problematic code and we will go for the converting it into better Code Using OPPs Features

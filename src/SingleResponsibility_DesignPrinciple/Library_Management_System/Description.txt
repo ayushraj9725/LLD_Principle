@@ -1,0 +1,13 @@
+Problem:
+In a library system, when a book is checked out or returned:
+
+-> Inventory Management: The system needs to update the availability of the book.
+
+-> Notification: The user should be notified about the status of the book (checked out or returned).
+
+-> Fines Calculation: If the book is returned late, a fine needs to be calculated.
+
+Applying SRP:
+   BookInventory class handles the inventory management.
+   NotificationService class is responsible for sending notifications.
+   FineCalculator class calculates the fine (if any).

@@ -1,0 +1,14 @@
+Problem:
+In a bookstore system, when a customer places an order:
+
+ -> Inventory: Check whether the books are available in stock.
+ -> Invoice Generation: Generate an invoice for the customer.
+ -> Shipping: Arrange shipping and generate a shipping label.
+ -> Notification: Send a notification to the customer regarding the order status.
+
+Applying SRP:
+ -> InventoryService class is responsible for inventory management.
+ -> InvoiceService class handles invoice generation.
+ -> ShippingService class is responsible for shipping logistics.
+ -> NotificationService is responsible for sending notifications to customers.
+
