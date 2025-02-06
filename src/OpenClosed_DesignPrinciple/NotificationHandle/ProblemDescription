@@ -1,7 +1,7 @@
 PROBLEM :
         Suppose we have a method which send the diff type of notification to the user
         by knowing the what type of notification we want to send , in problematic code we written the code
-        there are some type of notification which will sending to user by handling with "NotificationService" class
+        there are some type of notification which will send to user by handling with "NotificationService" class
 
 What will happen when we add new feature ?
         like new type of message we want to send (suppose we have SMS , EMAIL , WHATSAPP )already

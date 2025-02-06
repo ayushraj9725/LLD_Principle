@@ -5,7 +5,7 @@ public class SMS implements NotificationService{
     @Override
     public void sendNotification(String recipient, String message) {
         // Logic to send email
-        System.out.println("Sending Email to " + recipient + " with message: " + message);
+        System.out.println("Sending SMS to " + recipient + " with message: " + message);
 
     }
 }
