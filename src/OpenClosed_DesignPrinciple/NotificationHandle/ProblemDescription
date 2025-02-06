@@ -1,0 +1,36 @@
+PROBLEM :
+        Suppose we have a method which send the diff type of notification to the user
+        by knowing the what type of notification we want to send , in problematic code we written the code
+        there are some type of notification which will sending to user by handling with "NotificationService" class
+
+What will happen when we add new feature ?
+        like new type of message we want to send (suppose we have SMS , EMAIL , WHATSAPP )already
+        we have new notification " Telegram " we want to add then what will happen
+        we have to make changes in the notification class , and also in the " notificationService " class
+
+        which violating the OPEN / CLOSED DESIGN PRINCIPLE - That NotificationService class should Open for Extension Closed for Modification
+        in notificationService class we are making changes using modification each time this is the problem
+
+The phrase "open for extension, closed for modification" is one of
+the key principles of the Open/Closed Principle (OCP), which is one of the SOLID principles in object-oriented design.
+
+        Open for Extension:
+                          This means that the behavior of a class or module can be extended without altering its existing code.
+                          In other words, you should be able to add new functionality to a system without changing the existing code.
+                          This is typically done through inheritance, interfaces, or abstract classes in object-oriented programming.
+        Closed for Modification:
+                           This means that once a class or module has been written, it should not need to be modified to add
+                           new behavior or features. Any changes to the functionality should ideally be achieved by adding
+                           new code, rather than modifying the existing code. This helps in preserving the integrity of existing
+                           functionality and avoiding potential errors in code that already works.
+
+Why is it important?
+        This principle is essential for maintaining maintainability and extensibility in software.
+        When code is open for extension but closed for modification, you can extend the system to accommodate
+        new features or requirements without introducing bugs or breaking existing functionality.
+        This makes it easier to add new features while ensuring that the existing code remains stable.
+
+IN BETTER CODE WE ARE APPLYING THIS PRINCIPLE KEEP IN MIND those things  , WE ARE USING POLYMORPHISM
+
+
+
