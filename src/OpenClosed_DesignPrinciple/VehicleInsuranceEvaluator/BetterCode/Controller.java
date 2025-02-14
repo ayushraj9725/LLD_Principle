@@ -3,6 +3,7 @@ package OpenClosed_DesignPrinciple.VehicleInsuranceEvaluator.BetterCode;
 public class Controller {
 
     public static void main(String[] args) {
+
         Vehicle car = new Car();
         Vehicle truck = new Truck();
         Vehicle bike = new Bike();
@@ -17,5 +18,7 @@ public class Controller {
 
         InsuranceQuote bikeQuote = evaluator.evaluateInsurance(bike);
         System.out.println("Bike Insurance: " + bikeQuote.getDetails() + ", Premium: " + bikeQuote.getPremium());
+
+
     }
 }
