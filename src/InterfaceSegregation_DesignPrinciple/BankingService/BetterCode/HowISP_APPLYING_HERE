@@ -1,0 +1,56 @@
+
+ -> WHAT IS THE PROBLEM OVER HERE AND INTERFACE SEGREGATION DESIGN PRINCIPLE  ?
+
+     The Interface Segregation Principle (ISP) is one of the SOLID principles of object-oriented design.
+     It states that clients should not be forced to depend on interfaces they do not use. In other words,
+     interfaces should be small, focused, and specific to the needs of the client.
+
+     In the context of your BankingAppService and the account hierarchy, the Interface Segregation Principle
+     can be applied by ensuring that interfaces are designed to be specific to the responsibilities they represent,
+     rather than having a single large interface that forces clients to implement methods they don't need.
+
+ -> How ISP Applies to the Current Design
+      In the current in Problematic design, the Account interface has two methods:
+
+         * createAccount(String details)
+         * deposit(BigDecimal amount)
+
+      The WithdrawalAccount interface extends Account and adds one more method:
+
+         * withdraw(BigDecimal amount)
+
+      This design already adheres to the Interface Segregation Principle because:
+
+      1 Account Interface:
+
+         * Represents the core functionality of an account (creating an account and depositing funds).
+         * Clients that only need to create accounts or deposit funds can depend on this interface without being forced to implement withdrawal functionality.
+
+      2 WithdrawalAccount Interface:
+
+         * Extends Account and adds withdrawal functionality.
+         * Clients that need withdrawal functionality can depend on this interface, while clients that don't
+           need withdrawals can still depend on the Account interface.
+
+     ->  Applying ISP More Explicitly
+
+      To make the design even more aligned with ISP, we can further segregate the interfaces based on specific
+      responsibilities. For example:
+
+      * AccountCreation Interface: For creating accounts.
+      * Deposit able Interface: For depositing funds.
+      * Withdrawal Interface: For withdrawing funds.
+
+
+Key Benefits of Applying ISP
+  -> Flexibility:
+         Clients can depend on only the interfaces they need. For example, FixedTermDepositAccount does not need to
+         implement Withdrawable.
+
+  -> Decoupling:
+         The BankingAppService is decoupled from specific implementations and depends only on the interfaces it needs.
+
+  ->Maintainability:
+         Smaller, focused interfaces are easier to maintain and extend.
+         Adherence to SOLID Principles:
+         The design adheres to both the Interface Segregation Principle and the Dependency Inversion Principle.
