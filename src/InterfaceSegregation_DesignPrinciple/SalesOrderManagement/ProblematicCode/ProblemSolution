@@ -1,0 +1,94 @@
+PROBLEM WE SPECIFIED IN THE LISKOV SUBSTITUTION DESIGN PRINCIPLE
+
+THE EXTENDED VERSION OF THOSE WE ARE GOING TO DO HERE
+
+LSP DOES THIS THING BU NOT MORE CLEANABLE CODE IS THERE BUT HERE IN THIS INTERFACE SEGREGATION IT MAKE MORE
+
+IN ASPECT OF SAME PROBLEM AND STATEMENT
+
+       Why THAT BETTER CODE IN LSP PACKAGE Obeys LSP and Is Efficient
+
+       Substitutability:
+         -> Any state object can be substituted for another without breaking the program.
+         -> For example, replacing a NewOrder object with a Registered object works seamlessly.
+
+       Efficient State Transitions:
+         -> State transitions are handled explicitly in the SalesOrder class, making the system easy to understand and maintain.
+
+       Minimal Overhead:
+         -> Unsupported methods throw exceptions only when necessary, reducing unnecessary boilerplate code.
+
+       Scalability:
+         -> Adding new states or modifying existing ones is straightforward, making the system easy to extend.
+
+IN ASPECT OF THE INTERFACE SEGREGATION
+
+       The Interface Segregation Principle (ISP) is one of the SOLID principles of object-oriented design.
+       It states that no client should be forced to depend on methods it does not use. In other words,
+       interfaces should be small, focused, and specific to the needs of the client.
+
+       In the context of the OrderState design, we can apply ISP by breaking down the OrderState interface into smaller,
+       more specific interfaces. This ensures that each state class only implements the methods it needs,
+       avoiding unnecessary dependencies.
+
+       Applying ISP to the OrderState Design
+
+       Problem with the Current Design
+       The OrderState interface defines all possible actions (AddOrderLine, Register, Grant, Ship, Invoice, Cancel).
+
+       However, not all states support all actions. For example:
+
+       NewOrder supports AddOrderLine, Register, and Cancel.
+
+       Shipped supports only Invoice.
+
+       This forces each state class to implement methods it doesn’t need, violating ISP.
+
+       Solution: Segregate the Interface
+       Break the OrderState interface into smaller, more specific interfaces.
+
+       Each state class will implement only the interfaces it needs.
+
+       Refactored Design Using ISP
+       Step 1: Define the OrderState Interface
+               The OrderState interface acts as a base interface for all state classes.
+               It doesn't define any methods but serves as a common type for all states.
+
+       Step 2: Define Smaller Interfaces for Specific Behaviors
+               We define smaller interfaces for each group of related actions:
+
+       Step 3: Implement State Classes with Specific Interfaces
+               Each state class implements the OrderState interface and the specific behavior interfaces it supports:
+
+       Step 4: Update the SalesOrder Class
+               he SalesOrder class now uses the OrderState interface as the type for the current state.
+               It checks if the current state supports an action before delegating it:
+
+
+
+* Benefits of Applying ISP
+
+       No Unnecessary Dependencies:
+           Each state class implements only the interfaces it needs, avoiding unnecessary dependencies.
+
+       Better Maintainability:
+           Smaller interfaces are easier to understand and maintain.
+           Adding new actions or states requires minimal changes.
+
+       Clearer Design:
+           The responsibilities of each state class are clearly defined by the interfaces it implements.
+
+       Avoids Method Bloat:
+           State classes don’t need to implement methods they don’t use, reducing boilerplate code.
+
+* Key Takeaways
+       ISP Compliance: By segregating the OrderState interface into smaller, focused interfaces,
+                       we ensure that each state class only implements the methods it needs.
+
+       Efficiency: The SalesOrder class checks if the current state supports an action before delegating it,
+                   avoiding unnecessary method calls.
+
+       Scalability: Adding new actions or states is easy because the system is modular and adheres to ISP.
+
+       This refactored design adheres to the Interface Segregation Principle,
+       making the system more maintainable, scalable, and efficient.
