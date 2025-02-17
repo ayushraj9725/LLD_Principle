@@ -1,0 +1,61 @@
+The Liskov Substitution Principle (LSP) states that objects of a superclass should be replaceable with objects of a
+subclass without affecting the correctness of the program. If a subclass violates the behavior expected by the superclass,
+it breaks LSP.
+
+In the initial design (before applying the State Pattern), the OrderState class and its subclasses violate LSP because
+not all subclasses support the same methods. This inconsistency means that substituting one subclass for another can lead
+to runtime errors or unexpected behavior.
+
+Violation of LSP in the Initial Design
+Here’s how the initial design violates LSP:
+
+1. Inconsistent Method Availability
+  The OrderState superclass defines methods like AddOrderLine(), Register(), Grant(), Ship(), Invoice(), and Cancel().
+
+  However, subclasses like NewOrder, Registered, Granted, etc., do not implement all these methods. For example:
+
+  NewOrder supports AddOrderLine(), Register(), and Cancel() but not Grant(), Ship(), or Invoice().
+
+  Shipped supports only Invoice() and throws exceptions for other methods.
+
+  This inconsistency means that substituting one subclass for another can lead to runtime errors (e.g., calling Grant() on a Shipped object).
+
+2. Throwing Exceptions for Unsupported Methods
+  In the initial design, subclasses throw UnsupportedOperationException for methods they don’t support.
+
+  This is a clear violation of LSP because the superclass promises that all methods are available, but subclasses break this promise by throwing exceptions.
+
+3. Substitutability is Broken
+  If you replace an OrderState object with a NewOrder object, you can call AddOrderLine() and Register(), but calling Grant() will throw an exception.
+
+  This means that NewOrder cannot be used interchangeably with other subclasses of OrderState, violating LSP.
+
+Why This Violates LSP
+
+-> Unexpected Behavior:
+   When you substitute a NewOrder object for an OrderState object, calling Grant() throws an exception.
+   This is unexpected because the superclass (OrderState) defines Grant() as a valid method.
+
+-> Substitutability is Broken:
+   You cannot replace an OrderState object with a NewOrder or Shipped object without risking runtime errors.
+   This breaks the fundamental idea of LSP.
+
+-> Inconsistent Interface:
+   The subclasses do not fully implement the interface promised by the superclass.
+   This inconsistency makes it impossible to use subclasses interchangeably.
+
+How to Fix It (Applying LSP)
+To fix this, we use the State Design Pattern, as shown in the corrected implementation earlier.
+Each state class implements the OrderState interface, and unsupported methods throw exceptions only
+when they are truly invalid for that state. This ensures that all state objects adhere to the same
+interface and can be substituted without breaking the program.
+
+Key Takeaways
+   LSP Violation: The initial design violates LSP because subclasses do not support all methods defined by the superclass,
+                  leading to runtime errors when substituting objects.
+
+   Fixing LSP: By using the State Design Pattern, we ensure that all state objects adhere to the same interface and can be
+                  substituted without breaking the program.
+
+   State Pattern: This pattern is ideal for managing state-specific behavior while adhering to LSP.
+
